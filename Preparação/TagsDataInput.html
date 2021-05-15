@@ -36,11 +36,32 @@
         size = "8"
         pattern = "[0-9a-fA-F]{4,8}"
         title = "Coloque HEX entre 4 e 8 caracteres"
-        placeholder = "Coloque sua senha"
+        placeholder = "Senha"
         required
         inputmode = "numeric"
         autocomplete = "new-password"
         >
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!--Email-->
+    <form action="">
+        <datalist id = "emailslist">
+            <option>teste@gmail.com</option>
+            <option>teste2@gmail.com</option>
+            <option>teste3@gmail.com</option>
+        </datalist>
+
+        <input type="email"
+        placeholder = "Coloque seu e-mail"
+        multiple
+        pattern = ".+@gmail\.com"
+        title="Apenas gmail aceito"
+        size = "20"
+        list = "emailslist"
+        >
+
 
         <button type="submit">Enviar</button>
     </form>
