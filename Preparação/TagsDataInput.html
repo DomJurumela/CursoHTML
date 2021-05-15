@@ -25,7 +25,26 @@
         - placeholder **quase todos
     -->
 
-    <input type="text" autofocus autocomplete="email">
+    <input type="text" value="padrão" autocomplete="email">
+
+    <!--Password-->
+
+    <form action = "">
+        <input type = "password"
+        minlenght = "4"
+        maxlength = "8"
+        size = "8"
+        pattern = "[0-9a-fA-F]{4,8}"
+        title = "Coloque HEX entre 4 e 8 caracteres"
+        placeholder = "Coloque sua senha"
+        required
+        inputmode = "numeric"
+        autocomplete = "new-password"
+        >
+
+        <button type="submit">Enviar</button>
+    </form>
+
 </body>
 
 </html>
