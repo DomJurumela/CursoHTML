@@ -66,6 +66,30 @@
         <button type="submit">Enviar</button>
     </form>
 
+    <!--URL-->
+    <form action="">
+
+        <datalist id = "urlsdata">
+            <option>http://example.com</option>
+            <option>https://example.com.br</option>
+            <option>https://example.com/teste</option>
+        </datalist>
+
+
+
+        <input type="url"
+        placeholder="http://example.com"
+        required
+        pattern=".*\.com.*"
+        title="Somente domínios que contenham .com"
+        list ="urlsdata"
+        spellcheck = "false"
+        >
+
+
+        <button type="submit">Enviar</button>
+    </form>
+
 </body>
 
 </html>
