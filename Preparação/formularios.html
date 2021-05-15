@@ -35,6 +35,37 @@
         <button autofocus name = "buttonEnviar" value = "Valor" type="submit">Enviar</button>
         <button type="reset">Limpar</button>
     </form>
+
+    <!--Datalist-->
+
+    <input 
+        type ="text"
+        list = "fruitdata"
+        placeholder="Escolha uma fruta"
+        >
+
+    <datalist id="fruitdata">
+        <option>mango</option>
+        <option>banana</option>
+        <option>grapes</option>
+        <option>apple</option>
+        <option>orange</option>
+        <option>watermelon</option>
+        <option>cherry</option>
+    </datalist>
+
+    <datalist id ="colorsdata">
+        <option>#ff0000</option>
+        <option>#ff8800</option>
+        <option>#ffff00</option>
+        <option>#00ff00</option>
+        <option>#0000ff</option>
+        <option>#220044</option>
+        <option>#880088</option>
+    </datalist>
+
+   <input type="color" list="colorsdata" />
+
 </body>
 
 </html>
