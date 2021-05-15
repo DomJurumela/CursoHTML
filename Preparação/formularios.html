@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-<form id="contato" action="" method ="POST">
-<!--Vai recolher dados colocados no fieldset "contato, declarado logo abaixo"-->
-    <button>Enviar</button>
-</form>
+    <!--Form: -->
+    <form id="contato" action="" method="POST">
+        <!--Vai recolher dados colocados no fieldset "contato, declarado logo abaixo"-->
+        <button>Enviar</button>
+    </form>
 
-<fieldset form="contato" name="input">
-    <legend>
-        Contato
-    </legend>
+    <!--Fieldset/legend: -->
+    <fieldset form="contato" name="input">
+        <legend>
+            Contato
+        </legend>
 
-    <label for="">Nome</label>
-    <input type="text">
-</fieldset>
+        <label for="">Nome</label>
+        <input type="text">
+    </fieldset>
 
-<label for="nome">Nome Completo:</label>
-<input id="nome" type="text">
-    
+    <!--Label: -->
+    <label for="nome">Nome Completo:</label>
+    <input id="nome" type="text">
+
+    <!--Button: -->
+    <form action="">
+        <button autofocus name = "buttonEnviar" value = "Valor" type="submit">Enviar</button>
+        <button type="reset">Limpar</button>
+    </form>
 </body>
+
 </html>
