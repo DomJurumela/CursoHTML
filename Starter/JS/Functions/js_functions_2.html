@@ -1,0 +1,40 @@
+<script>
+
+    const wtf =  (callback) => {
+        //função com setinha ao invés de function
+        console.log("WTF");
+        callback();
+    }
+
+
+    wtf(
+        ()=>{
+            console.log("Isso é uma callback.");
+
+        }
+    )
+
+
+    const sum = function(number1, number2){
+        let result = number1+number2;
+        return result
+    }
+
+    n1 = 33;
+    n2 = 59
+
+    console.log("A soma é igual a " + sum(n1,n2));
+
+
+    //Método construtor
+    function Person(name){
+        this.name = name;
+    }
+
+    
+    const joao = new Person('João');
+    console.log(joao.name);
+
+</script>
+
+

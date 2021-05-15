@@ -1,0 +1,48 @@
+<script>
+    //Número como objeto
+    let age = new Number(23);
+    console.log(age);
+    
+    //pegando todas as propriedades da classe
+    console.log(age.__proto__);
+
+    //deletando item de objeto
+    const person = {
+        name: 'Joao',
+        age: 31
+    }
+    delete person.age;
+    console.log(person);
+
+    //operações de comparação
+    let one = 1;
+    let two = 2;
+    console.log (two == one);
+    console.log (two != one);
+    console.log(two >= one);
+
+    //sinal de estritamente igual (===)
+    console.log(one=='1'); //resuldato true
+    console.log(one==='1'); //resultado false
+
+    //operadores booleanos
+    let pao = true
+    let queijo = false
+    console.log(pao && queijo); //AND
+    console.log(pao || queijo); //OR
+
+    //Pérador Condicional
+    //condition ? value1 : value2
+    //value 1 -> resultado se verdadeiro
+    //value 2 -> resultado se falso
+
+    console.log(true ? true : false); //condição verdadeira
+    console.log(false ? true : false); //condição falsa
+
+
+
+</script>
+
+
+
+

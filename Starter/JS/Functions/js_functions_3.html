@@ -1,0 +1,67 @@
+<script>
+
+//transformando número em String
+number = 123
+console.log(number)
+console.log(String(number));
+
+//contando letras de uma palavra
+word = "paralelepipedo";
+console.log(word.length);
+console.log((String(number)).length);
+
+//colocando número com duas casas decimais
+number = 4.3545465656;
+console.log(number.toFixed(2).replace(".",","));
+
+//colocando texto em maísculas
+word = "mamaco";
+console.log(word.toUpperCase());
+
+//separando Strings
+let phrase = "Vô comê a tia do Bátema";
+let myArray = phrase.split(" ");
+console.log(myArray);
+
+//juntando a frase com underline
+let phraseWithUnderscore = myArray.join("_");
+console.log(phraseWithUnderscore);
+
+//checar se há uma palavra específica na frase
+phrase = "Eu quero viver!";
+console.log(phrase.includes("amor"));
+
+//criando um array com método construtor
+let myArray2 = new Array(10);
+console.log(myArray2.length);
+
+//String para Array
+let word2 = "manipulação";
+console.log(Array.from(word2));
+
+//Adicionando e tirando item ao Array
+let nums = [1,2,3,4];
+nums.push(5);
+nums.unshift(0);
+console.log(nums);
+
+nums.pop();
+nums.shift();
+console.log(nums);
+
+//Pegando uma parte do Array
+console.log(nums.slice(1,3));
+
+//remover um item específico
+nums.splice(1,1)
+console.log(nums);
+
+//pegando o endereço de um elemento por seu valor
+let index = nums.indexOf(3);
+console.log(index);
+
+</script>
+
+
+
+

@@ -1,0 +1,108 @@
+<script>
+
+    //funções if/else
+    if( 1 > 0){
+        console.log(true);
+    }
+    else {
+        console.log(false);
+    }
+
+    if(1 > 2){
+        console.log(true);
+    }
+    else if (2 > 1){
+        console.log(false);
+    }
+    else{
+        console.log("???")
+    }
+
+    //função switch
+    let index = 3;
+    
+    switch(index){
+        case 1:
+            console.log("É pouco");
+            break
+
+        case 2:
+            console.log("É bom");
+            break;
+
+        case 3: 
+            console.log("É demais");
+            break;
+
+        default: 
+            console.log("Num sei");
+            break;
+    }
+    
+    //throw
+
+    function sayMyName(name){
+        if (name === ""){
+            throw new Error("Nome é necessário");
+        }
+
+        console.log("depois do erro");
+    }
+
+    //try... catch
+    try{
+        sayMyName("");
+    } catch(e){
+        console.log(e);
+    }
+    console.log("depois da função de erro");
+
+    //for
+    for(let i = 0; i < 10; i++){
+        if (i==5){
+            continue;
+        }
+
+        console.log(i);
+    }
+
+    //while
+    i = 0
+    while(i<100){
+        console.log(i);
+        i+= 10;
+    }
+
+    //for... of
+    let name = "Jeremias";
+    let names = ["João", "Paulo", "Pedro"];
+
+    for (let char of name){
+        console.log(char);
+    }
+    for (let name of names){
+        console.log(name);
+    }
+
+
+    //for... in
+    let person = {
+        name: "Zé",
+        age: 30,
+        weight: 82.7
+    }
+
+    for (let property in person) {
+        console.log(property);
+        console.log(person[property]);
+    }
+
+
+    
+
+</script>
+
+
+
+
+

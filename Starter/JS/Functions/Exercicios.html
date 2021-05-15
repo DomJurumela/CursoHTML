@@ -1,0 +1,177 @@
+<script>
+    //Ex 1
+    //notas numéricas para ABC
+
+    function adaptaNota(notaNum) {
+
+        console.log(notaNum);
+
+        if (notaNum >= 90 && notaNum <= 100) {
+            return "A";
+        }
+
+        else if (notaNum >= 80 && notaNum < 90) {
+            return "B";
+        }
+
+        else if (notaNum >= 70 && notaNum < 80) {
+            return "C";
+        }
+
+
+        else if (notaNum >= 60 && notaNum < 70) {
+            return "D";
+        }
+
+        else if (notaNum >= 00 && notaNum < 60) {
+            return "F";
+        }
+
+        else {
+            throw new Error("valor inválido");
+        }
+
+
+    }
+
+    console.log(adaptaNota(95));
+    console.log(adaptaNota(100));
+    console.log(adaptaNota(90));
+    console.log(adaptaNota(83.4));
+    console.log(adaptaNota(80));
+    console.log(adaptaNota(70));
+    console.log(adaptaNota(60));
+    console.log(adaptaNota(59.8));
+    try {
+        console.log(adaptaNota(101));
+    } catch {
+        console.log("Erro. Nota fora da escala.")
+    }
+
+
+    //Ex 1: Outro método, pelo professor
+
+    let score = 100;
+    let scoreA = (score >= 90 && score <= 100); // ScoreA seria um boolean
+    let scoreB = (score >= 80 && score < 90);
+
+    //Ex 2: Calcular total de despesas e receitas
+
+    let receitas = [];
+    let despesas = [];
+
+    function calculateBalance(receitas, despesas) {
+        let sum = 0;
+
+        for (let receita of receitas) {
+            sum += receita;
+        }
+
+        for (let despesa of despesas) {
+            despesa = Math.abs(despesa); //convertendo os valores para positivo
+            sum -= despesa;
+        }
+        console.log(sum);
+        if (sum >= 0) {
+            console.log("Saldo positivo");
+        }
+        else {
+            console.log("Saldo Negativo");
+        }
+    }
+
+
+    calculateBalance([45, 93.50, 107], [103, 32.25, 77]);
+
+
+    //Ex 3: Celsius em Farenheit e vice-versa
+
+    function convert(degrees) {
+        let scale = degrees.slice(-1);
+
+        //value = Number(degreesNum.slice(0, -1)); //slice(0, -1) tira o último termo da string
+        value = parseFloat(degrees); //-> método usando parseFloat
+
+        if (scale.toUpperCase() === "C") {
+            return (value * 9 / 5 + 32) + " degrees Farenheit.";
+        }
+        else if (scale.toUpperCase() === "F") {
+            return ((value - 32) * 5 / 9) + " degrees Celsius.";
+        }
+
+        else {
+            throw new Error("Escala não identificada");
+        }
+    }
+
+    console.log(convert("25C"));
+    console.log(convert("100f"));
+    console.log(convert("-40c"));
+    console.log(convert("-40F"));
+    try {
+        console.log(convert("400"));
+    } catch (error) {
+        console.log("Erro. Escala desconhecida.")
+    }
+
+    //Ex 4: Array de livros
+
+    let book = function (writer, name) {
+        this.writer = writer;
+        this.name = name;
+
+    }
+    const booksByCategory = [
+        {
+            category: "Terror",
+            books: [new book("Zé Josefino", "Liga a luz, desgraça"), new book ("Augusto Cury", "Vou me Mijar"), new book("Augusto Cury", "Eu Já Me Mijei")]
+        },
+
+        {
+            category: "Fantasia",
+            books: [new book("Mariana Maricota", "A Fada Banguela"), new book ("Augusto Cury", "Fogo no Rabo"), new book("Zé Josefino", "O Dragão Esclerosado")]
+        },
+
+        {
+            category: "Suspense",
+            books: [new book ("Armindo Roberto", "Quem Furou"), new book ("Mariana Maricota", "Um Arroto na Noite")]
+        }
+    ]
+
+    function countWriters (booksByCategory){
+        let writers = [];
+        let writersTotal = 0;
+        for (let category of booksByCategory){
+            for (let book of category.books) {
+                if (!(writers.includes(book.writer))){
+                    writers.push(book.writer);
+                    writersTotal += 1;
+                
+                }
+            }
+        }
+        
+        return writersTotal;
+    }
+
+    function findByWriter (writer){
+        let result = [];
+        for (category of booksByCategory){
+            for (book of category.books) {
+                if (writer == book.writer){
+                    result.push(book);
+                }
+            }
+        }
+        return result;
+    }
+
+    //Contando total de autores:
+    console.log(countWriters(booksByCategory));
+
+    //livros por autor
+    console.log(findByWriter("Augusto Cury"));
+    console.log(findByWriter("Mariana Maricota"));
+
+
+</script>
