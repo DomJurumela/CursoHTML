@@ -29,38 +29,24 @@
 
     <!--Password-->
 
-    <form action = "">
-        <input type = "password"
-        minlenght = "4"
-        maxlength = "8"
-        size = "8"
-        pattern = "[0-9a-fA-F]{4,8}"
-        title = "Coloque HEX entre 4 e 8 caracteres"
-        placeholder = "Senha"
-        required
-        inputmode = "numeric"
-        autocomplete = "new-password"
-        >
+    <form action="">
+        <input type="password" minlenght="4" maxlength="8" size="8" pattern="[0-9a-fA-F]{4,8}"
+            title="Coloque HEX entre 4 e 8 caracteres" placeholder="Senha" required inputmode="numeric"
+            autocomplete="new-password">
 
         <button type="submit">Enviar</button>
     </form>
 
     <!--Email-->
     <form action="">
-        <datalist id = "emailslist">
+        <datalist id="emailslist">
             <option>teste@gmail.com</option>
             <option>teste2@gmail.com</option>
             <option>teste3@gmail.com</option>
         </datalist>
 
-        <input type="email"
-        placeholder = "Coloque seu e-mail"
-        multiple
-        pattern = ".+@gmail\.com"
-        title="Apenas gmail aceito"
-        size = "20"
-        list = "emailslist"
-        >
+        <input type="email" placeholder="Coloque seu e-mail" multiple pattern=".+@gmail\.com"
+            title="Apenas gmail aceito" size="20" list="emailslist">
 
 
         <button type="submit">Enviar</button>
@@ -69,7 +55,7 @@
     <!--URL-->
     <form action="">
 
-        <datalist id = "urlsdata">
+        <datalist id="urlsdata">
             <option>http://example.com</option>
             <option>https://example.com.br</option>
             <option>https://example.com/teste</option>
@@ -77,19 +63,58 @@
 
 
 
-        <input type="url"
-        placeholder="http://example.com"
-        required
-        pattern=".*\.com.*"
-        title="Somente domínios que contenham .com"
-        list ="urlsdata"
-        spellcheck = "false"
-        >
+        <input type="url" placeholder="http://example.com" required pattern=".*\.com.*"
+            title="Somente domínios que contenham .com" list="urlsdata" spellcheck="false">
 
 
         <button type="submit">Enviar</button>
     </form>
 
+    <!--Input File-->
+    <form action="" method="POST" enctype="multipart/form-data">
+        <!--Estrutura necessária para tipo file-->
+        <input type="file" accept="image/*, .txt" multiple>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!--Type Color-->
+
+    <datalist id="colorsdata">
+        <!--Não funciona em todos os navegadores-->
+        <option>#ff0000</option>
+        <option>#ff8800</option>
+        <option>#ffff00</option>
+        <option>#00ff00</option>
+        <option>#0000ff</option>
+        <option>#220044</option>
+        <option>#880088</option>
+    </datalist>
+
+    <form action="">
+        <input type="color" list="colorsdata" value="#ff0000">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!--Checkbox-->
+    <label for="subscribe">Receber notificações</label>
+    <input type="checkbox" name="subscribe" id="subscribe">
+    <!-- subscribe = on-->
+
+    <!--Checkbox múltiplos valores-->
+    <!--interest = coding, music-->
+    <fieldset>
+        <legend>Choose your interests: </legend>
+        <div>
+            <input type="checkbox" id="coding" name="interest" value=coding checked>
+            <label for="coding">Coding</label>
+        </div>
+        <div>
+            <input type="checkbox" id="music" name="interest" value=music>
+            <label for="music">Music</label>
+        </div>
+    </fieldset>
 </body>
 
 </html>
