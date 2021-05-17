@@ -99,7 +99,7 @@
 
     <!--Checkbox-->
     <label for="subscribe">Receber notificações</label>
-    <input type="checkbox" name="subscribe" id="subscribe">
+    <input checked type="checkbox" name="subscribe" id="subscribe">
     <!-- subscribe = on-->
 
     <!--Checkbox múltiplos valores-->
@@ -107,7 +107,7 @@
     <fieldset>
         <legend>Choose your interests: </legend>
         <div>
-            <input type="checkbox" id="coding" name="interest" value=coding checked>
+            <input checked type="checkbox" id="coding" name="interest" value=coding>
             <label for="coding">Coding</label>
         </div>
         <div>
@@ -119,6 +119,19 @@
     <!--Hidden -->
     <input type="hidden" name="id" value="8">
     <!-- id=8 -->
+
+    <!--Radio -->
+
+    <fieldset>
+        <legend>Bora tomar um café?</legend>
+
+        <label for="yep">sim</label>
+        <input type="radio" id="yep" name="coffe" value="yes">
+
+        <label for="nono">não</label>
+        <input checked type="radio" id="nono" name="coffe" value="no">
+    </fieldset>
+    
 </body>
 
 </html>
