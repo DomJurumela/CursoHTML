@@ -134,8 +134,9 @@
 
     <!--TextArea - texto com mais de uma linha-->
     <label for="message"></label>
-    <textarea placeholder="Digite sua mensagem" minlength = "10" maxlength="1000" name="mensagem" id="message" cols="50" rows="7" wrap = "hard"></textarea>
-    
+    <textarea placeholder="Digite sua mensagem" minlength="10" maxlength="1000" name="mensagem" id="message" cols="50"
+        rows="7" wrap="hard"></textarea>
+
     <!--Select-->
     <br>
     <label for="carselect">Qual modelo do carro</label>
@@ -179,27 +180,40 @@
     </datalist>
 
     <form action="">
-        <input type="search" name="q" id="" ut=""
-        list="searchterms"
-        placeholder="Pesquisar"
-        aria-label="campo de pesquisa">
+        <input type="search" name="q" id="" ut="" list="searchterms" placeholder="Pesquisar"
+            aria-label="campo de pesquisa">
         <button>Go</button>
     </form>
 
     <!--Number-->
     <br><br><br>
     <form action="">
-            input type="number" min="2" max="100" placeholder="Digite somente números">
+        <input type="number" min="2" max="100" placeholder="Digite somente números">
         <button>Enviar</button>
     </form>
 
 
     <!--Range-->
     <br><br><br>
-    <input type="range" min="0" max="100" value="20" step="5">
+    <input id="ranged" type="range" min="0" max="100" value="20" step="5">
+    <label for="" id="rangedValue"></label>
+
+    <script>
+        //retirado de https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider
+        var slider = document.getElementById("ranged");
+        var output = document.getElementById("rangedValue");
+        output.innerHTML = slider.value; //call ao iniciar programa
+
+        slider.oninput = function () { //call ao mudar o slider
+            output.innerHTML = this.value;
+        }
+        
+    </script>
+
+
+
 
     <!--Data e Hora (não têm suporte para todos os navegadores)
-    
     Ficar de olho em https://caniuse.com-->
     <br><br><br>
     <input type="date">
