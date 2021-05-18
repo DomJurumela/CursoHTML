@@ -7,3 +7,9 @@ console.log(element)
 
 element = document.getElementsByClassName("one");
 console.log(element)
+
+
+//getElementsByTagName
+
+element = document.getElementsByTagName("meta");
+console.log(element)
