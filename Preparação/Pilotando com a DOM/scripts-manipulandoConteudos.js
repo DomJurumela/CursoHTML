@@ -18,6 +18,7 @@ element.innerHTML = "Teste <small>innerHTML</small>"
 
 //value
 let elementInput = document.getElementById('input1');
+console.log(elementInput.value)
 
 let eleAux;
 elementInput.oninput = function(){
@@ -25,3 +26,15 @@ elementInput.oninput = function(){
     eleAux+= "pingas";
     console.log(eleAux);
 }
+
+//Manipulando atributos
+const header = document.querySelector("header");
+console.log(header);
+
+header.setAttribute('id','header');
+const headerId = document.querySelector('#header')
+console.log(headerId);
+
+console.log(headerId.getAttribute('id'));
+headerId.removeAttribute('id');
+console.log(headerId);
