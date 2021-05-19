@@ -15,3 +15,13 @@ element.innerText = "Teste innerText"
 
 element = document.getElementById('a3');
 element.innerHTML = "Teste <small>innerHTML</small>"
+
+//value
+let elementInput = document.getElementById('input1');
+
+let eleAux;
+elementInput.oninput = function(){
+    eleAux = elementInput.value;
+    eleAux+= "pingas";
+    console.log(eleAux);
+}
