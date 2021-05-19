@@ -15,3 +15,9 @@ input.onkeydown = function rodar(){
 const h1 = document.querySelector('h1');
 
 h1.addEventListener('mouseover', print);
+
+//Eventos via js (outro método)
+
+h1.ondblclick = function(){
+    console.log('dbl print');
+}
