@@ -19,3 +19,8 @@ console.log(element);
 
 element = document.querySelector('.two');
 console.log(element);
+
+//querySelectorAll
+
+let elements = document.querySelectorAll('meta');
+elements.forEach(el => console.log(el));
