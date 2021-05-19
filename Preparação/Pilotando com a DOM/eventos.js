@@ -21,3 +21,9 @@ h1.addEventListener('mouseover', print);
 h1.ondblclick = function(){
     console.log('dbl print');
 }
+
+//Argumento event
+
+input.onkeypress = function(event){
+    console.log(event.key)
+}
