@@ -12,4 +12,10 @@ console.log(element)
 //getElementsByTagName
 
 element = document.getElementsByTagName("meta");
-console.log(element)
+console.log(element);
+
+
+//querySelector
+
+element = document.querySelector('.two');
+console.log(element);
