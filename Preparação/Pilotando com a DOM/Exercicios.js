@@ -1,5 +1,5 @@
 const button = document.getElementById('openModal');
-const telaSecundaria = document.getElementById('tela2');
+const telaSecundaria = document.querySelector('.modal-wrapper');
 
 
 document.addEventListener('keydown', fecharTela);
