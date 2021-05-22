@@ -14,3 +14,12 @@ console.log("O que são e como utilizar módulos: \n");
 const path = require('path');
 console.log(path);
 console.log(path.basename(__filename));
+
+console.log("\n\n\n");
+
+//Criando Módulos
+
+console.log("Criando Módulos: \n");
+const myModule = require('./exports.js');
+console.log(myModule);
+
