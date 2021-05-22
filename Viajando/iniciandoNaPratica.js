@@ -26,3 +26,12 @@ console.log(myModule);
 
 console.log("\n\n\n");
 
+//Pegando Informações do Processo
+
+console.log("Pegando Informações do Processo: \n");
+
+console.log(process);
+console.log(process.argv);
+const firstname = process.argv[2];
+const lastname = process.argv[3];
+console.log(`Seu nome é ${firstname} ${lastname}`);
