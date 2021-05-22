@@ -1,4 +1,4 @@
-//Executando o primeiro arquivo e entendendo globals
+ //Executando o primeiro arquivo e entendendo globals
 console.log("Executando o primeiro arquivo e Entendendo globals: \n");
 console.log('Alguma coisa aqui');
 global.console.log('Alguma coisa aqui');
@@ -35,3 +35,11 @@ console.log(process.argv);
 const firstname = process.argv[2];
 const lastname = process.argv[3];
 console.log(`Seu nome é ${firstname} ${lastname}`);
+
+console.log("\n\n\n");
+
+//Passando flags como argumento
+
+console.log("Passando flags como argumento: \n")
+
+console.log(process.argv);
