@@ -20,6 +20,9 @@ console.log("\n\n\n");
 //Criando Módulos
 
 console.log("Criando Módulos: \n");
+
 const myModule = require('./exports.js');
 console.log(myModule);
+
+console.log("\n\n\n");
 
