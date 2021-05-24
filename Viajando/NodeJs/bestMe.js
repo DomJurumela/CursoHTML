@@ -12,4 +12,9 @@ const ask = (index = 0) => {
     return process.stdout.write(questions[index] + "\n\n\n");
 }
 
-ask;
+ask();
+
+process.stdin.on("data", data => {
+    process.stdout.write( data.toString().trim() +'\n');
+    process.exit();
+})
