@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "cfonts": "^2.9.2",
-    "opn": "^6.0.0",
+    "moment": "^2.29.1",
     "requirer": "0.0.4"
   }
 }
