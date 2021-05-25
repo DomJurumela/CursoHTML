@@ -15,12 +15,9 @@ clearTimeout(timer);
 
 //setInterval
 const timeOut2 = 1000;
-const timeOut3 = 10000;
 let i = 1;
 const checking = () => console.log(i++);
 const timer2 = setInterval(checking, timeOut2);
-finished = () => clearTimeout (timer2);
-setTimeout(finished, timeOut3);
 */
 
 
