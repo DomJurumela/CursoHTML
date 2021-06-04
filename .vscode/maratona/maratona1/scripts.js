@@ -12,30 +12,35 @@ const Modal = {
     }
 }
 
-const transactions = [{
-    id: 1,
-    description: 'Luz',
-    amount: -50000,
-    date: '23/01/2021',
-},
-{
-    id: 2,
-    description: 'Website',
-    amount: 500000,
-    date: '23/01/2021',
-},
-{
-    id: 3,
-    description: 'Internet',
-    amount: -20000,
-    date: '23/01/2021',
-}]
-
 const Transaction = {
-    all: transactions,
+    all: [
+        {
+            description: 'Luz',
+            amount: -50000,
+            date: '23/01/2021',
+        },
+        {
+            description: 'Website',
+            amount: 500000,
+            date: '23/01/2021',
+        },
+        {
+            description: 'Internet',
+            amount: -20000,
+            date: '23/01/2021',
+        },
+    ],
 
     add(transaction){
         Transaction.all.push(transaction);
+
+        App.reload(); //Mandando o app recarregar com dados novos
+    },
+
+    remove (index){
+        Transaction.all.splice(index, 1);
+
+        App.reload();
     },
 
     incomes() {
@@ -103,11 +108,26 @@ const DOM = {
         document
             .getElementById('totalDisplay')
             .innerHTML = Utils.formatCurrency(Transaction.total());
+    },
+
+    clearTransactions(){
+        DOM.transactionsContainer.innerHTML = "";
     }
 }
 
 
 const Utils = {
+    formatAmount(value){
+        value = Number(value) * 100;
+        return value;
+    },
+
+    formatDate(date){
+        const splittedDate = date.split("-");
+        console.log(date);
+        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
+    },
+
     formatCurrency(value) { //transforma número em valor em reais
         const signal = Number(value) < 0 ? "-" : "";
     
@@ -124,20 +144,110 @@ const Utils = {
     }
 }
 
+const Form = {
+    description: document.querySelector('input#description'),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    getValues() {
+        return {
+            description: Form.description.value,
+            amount: Form.amount.value,
+            date: Form.date.value
+        }
+    },
+
+    validateFields() {
+        const {description, amount, date} = Form.getValues();
+
+        if(description.trim() === "" || amount.trim() === "" || date.trim() === "") {
+            
+            throw new Error("Por favor, preencha todos os campos");
+        }
+    },
+
+    formatValues(){
+        let {description, amount, date} = Form.getValues();
+
+        amount = Utils.formatAmount(amount);
+
+        date = Utils.formatDate(date);
+
+        return{
+            description,
+            amount,
+            date
+        }
+    },
+
+    clearFields(){
+        Form.description.value = ""
+        Form.amount.value = "",
+        Form.date.value = ""
+    },
+
+    submit(event) {
+        event.preventDefault();
+
+
+
+        try {
+            // verificar se todas as informações foram preenchidas
+            Form.validateFields();
+
+            // formatar os dados para salvar
+            const transaction = Form.formatValues();
+
+            // salvar
+            Transaction.add(transaction);
+
+            // apagar os dados do formulário
+            Form.clearFields();
+
+            // modal feche
+            Modal.close();
+        }
+        catch (error) {
+            alert(error.message);
+        }
+
+
+
+    }
+}
 
 
 
 
+const App = {
+    init() {
+        //atualizandoSaldo:
+        Transaction.all.forEach(function(transaction) {
+        DOM.addTransaction(transaction);
+        })
+        DOM.updateBalance();
 
 
+
+    },
+
+    reload() {
+        DOM.clearTransactions();
+        App.init();
+    },
+}
+
+App.init();
+
+//adicionando nova transaction:
 Transaction.add({
-    id: 4,
     description: "Testes",
     amount: -3000,
     date: '23/01/2012'
 })
-console.log(transactions);
-DOM.updateBalance();
-transactions.forEach(function(transaction) {
-    DOM.addTransaction(transaction);
-})
+
+
+
+
+
+
