@@ -12,8 +12,25 @@ const Modal = {
     }
 }
 
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [] //devolverá um array vazio caso nenhum dado seja encontrado
+    },
+
+    set (transactions) {
+        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions)); //transformará o array para string para que seja armazenado
+    }
+}
+
 const Transaction = {
-    all: [
+    all: Storage.get(),
+
+    add(transaction){
+        Transaction.all.push(transaction);
+
+        App.reload();
+    },
+    /*[
         {
             description: 'Luz',
             amount: -50000,
@@ -29,7 +46,7 @@ const Transaction = {
             amount: -20000,
             date: '23/01/2021',
         },
-    ],
+    ], */
 
     add(transaction){
         Transaction.all.push(transaction);
@@ -78,10 +95,11 @@ const DOM = {
     addTransaction(transaction, index){
         const tr = document.createElement('tr');
         tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+        tr.dataset.index = index;
     
         DOM.transactionsContainer.appendChild(tr);
     },
-    innerHTMLTransaction(transaction) { 
+    innerHTMLTransaction(transaction, index) { 
         const CSSclass = transaction.amount > 0 ? "income" : "expense"
         
         const amount =  Utils.formatCurrency(transaction.amount);
@@ -91,7 +109,7 @@ const DOM = {
             <td class="${CSSclass}">${amount}</td>
             <td class="date">${transaction.date}</td>
             <td class="symbol">
-                <img src="./assets/minus.svg" alt="Remover Transação">
+                <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover Transação">
             </td>
             `;
 
@@ -115,7 +133,6 @@ const DOM = {
     }
 }
 
-
 const Utils = {
     formatAmount(value){
         value = Number(value) * 100;
@@ -124,7 +141,6 @@ const Utils = {
 
     formatDate(date){
         const splittedDate = date.split("-");
-        console.log(date);
         return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
     },
 
@@ -218,17 +234,17 @@ const Form = {
 
 
 
-
 const App = {
     init() {
         //atualizandoSaldo:
-        Transaction.all.forEach(function(transaction) {
-        DOM.addTransaction(transaction);
+        Transaction.all.forEach(function(transaction, index) {
+        DOM.addTransaction(transaction, index);
         })
+
+
         DOM.updateBalance();
 
-
-
+        Storage.set(Transaction.all)
     },
 
     reload() {
@@ -238,13 +254,6 @@ const App = {
 }
 
 App.init();
-
-//adicionando nova transaction:
-Transaction.add({
-    description: "Testes",
-    amount: -3000,
-    date: '23/01/2012'
-})
 
 
 
